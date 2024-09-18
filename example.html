@@ -48,30 +48,44 @@
         }
 
         section {
-            padding: 100px 20px;
+            padding: 60px 20px; /* Consistent padding for all sections */
             margin-top: 80px;
-            min-height: 70vh;
+            min-height: 60vh; /* Consistent section height */
             margin-bottom: 40px;
-        }
-
-        section::before {
-            content: '';
-            display: block;
-            height: 90px;
-            margin-top: -100px;
-            visibility: hidden;
         }
 
         #home {
             background-color: #e9ecef;
-            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: left;
+            padding: 60px 20px; /* Reduced padding */
         }
 
         #home img {
-            max-width: 300px;
+            max-width: 320px; /* Reduced image size */
             border-radius: 50%;
+            margin-right: 40px; /* Adjusted space between image and text */
         }
 
+        #home .text-content {
+            max-width: 600px;
+        }
+
+        #home h1 {
+            font-size: 3.5rem; /* Reduced font size */
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        #home p {
+            font-size: 1.9rem; /* Adjusted font size */
+            color: #555;
+            margin-top: 0;
+        }
+
+        /* Consistent styling for all sections */
         #about, #education, #projects, #contact {
             background-color: #ffffff;
             padding: 50px;
@@ -81,6 +95,7 @@
             margin-bottom: 40px;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            min-height: 60vh; /* Ensure all sections have same minimum height */
         }
 
         #about:hover, #education:hover, #projects:hover, #contact:hover {
@@ -124,25 +139,33 @@
         /* Projects section styling */
         .section-container {
             display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch;
             gap: 20px;
         }
 
         .details-container {
-            width: 30%;
+            flex: 0 1 calc(33.33% - 20px);
             padding: 20px;
             background-color: #f1f1f1;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 350px;
         }
 
         .details-container img {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+            max-height: 200px;
             margin-bottom: 10px;
+            margin-left: auto;
+            margin-right: auto;
+            border-radius: 8px;
         }
 
         .project-title {
@@ -150,12 +173,101 @@
             color: #333;
             margin-top: 10px;
         }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            #home {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            #home img {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .details-container {
+                flex: 0 1 45%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .details-container {
+                flex: 0 1 100%;
+            }
+        }
+
+        /* Contact section styling */
+        #contact {
+            background-color: #f9f9f9;
+            padding: 60px;
+            border-radius: 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #contact:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            max-width: 600px;
+            width: 100%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-icon {
+            width: 80px; /* Adjust as needed */
+            height: auto;
+            margin-right: 20px;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-icon:hover {
+            transform: scale(1.1); /* Slight zoom on hover */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-item p {
+            font-size: 1.3rem;
+            color: #333;
+            margin: 0;
+        }
+
+        .contact-item a {
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
 
     <nav>
         <ul>
+            <li><a href="#home">HOME</a></li>
             <li><a href="#about">ABOUT</a></li>
             <li><a href="#education">EDUCATION</a></li>
             <li><a href="#projects">PROJECTS</a></li>
@@ -164,8 +276,11 @@
     </nav>
 
     <section id="home">
-        <h1>MANOJ KUMAR</h1>
-        <img src="C:\Users\Manoj\OneDrive\Documents\1.jpg" alt="Profile Photo">
+        <img src="C:\Users\Manoj\OneDrive\Documents\AWT\1.jpg" alt="Profile Photo">
+        <div class="text-content">
+            <h1>MANOJ KUMAR</h1>
+            <p>Welcome to my portfolio!</p>
+        </div>
     </section>
 
     <section id="about">
@@ -196,27 +311,33 @@
         <h2>PROJECTS</h2>
         <div class="section-container">
             <div class="details-container">
-                <img src="./assets/project-1.png" alt="2048 Game" class="project-img">
+                <img src="C:\Users\Manoj\OneDrive\Documents\AWT\2048.png" alt="2048 Game" class="project-img">
                 <h2 class="project-title">2048 Game</h2>
             </div>
             <div class="details-container">
-                <img src="./assets/project-2.png" alt="Travel Planning Website" class="project-img">
+                <img src="C:\Users\Manoj\OneDrive\Documents\AWT\TPW.jpg" alt="Travel Planning Website" class="project-img">
                 <h2 class="project-title">Travel Planning Website</h2>
             </div>
             <div class="details-container">
-                <img src="./assets/project-3.png" alt="Car Rental System" class="project-img">
+                <img src="C:\Users\Manoj\OneDrive\Documents\AWT\car.jpg" alt="Car Rental System" class="project-img">
                 <h2 class="project-title">Car Rental System</h2>
             </div>
         </div>
     </section>
 
     <section id="contact">
-        <h2>CONTACT</h2>
-        <p>If you'd like to get in touch, please reach out via email at:
-            <a href="mailto:sharanyakurapati2005@gmail.com">sharanyakurapati2005@gmail.com</a>
-        </p>
-        <p>Phone: +1234567890</p>
+        <h2>CONTACT ME</h2>
+        <div class="contact-container">
+            <div class="contact-item">
+                <img src="C:\Users\Manoj\OneDrive\Documents\AWT\em.jpg" alt="Email Icon" class="contact-icon">
+                <p>Email: <a href="mailto:arjunkumar4545345@gmail.com">arjunkumar4545345@gmail.com</a></p>
+            </div>
+            <div class="contact-item">
+                <img src="C:\Users\Manoj\OneDrive\Documents\AWT\phone.png" alt="Phone Icon" class="contact-icon">
+                <p>Phone: +91 8445644156</p>
+            </div>
+        </div>
     </section>
-
+    
 </body>
 </html>
